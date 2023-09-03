@@ -1,7 +1,6 @@
 import NavBar from '../components/NavBar';
 import '../styles/App.sass';
 import '../styles/Home.sass';
-import { Card } from 'react-bootstrap';
 
 const App = () => {
 	const aboutContent = [{ title: 'วางแผน', iconName: 'assignment', desc: 'วางแผนการเรียนด้วย', descB: 'To-Do list ของเรา' },
