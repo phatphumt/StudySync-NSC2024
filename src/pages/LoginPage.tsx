@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 import "../styles/LoginPage.sass";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 
 const LoginPage = () => {
   const [signing, setSigning] = useState(false);
