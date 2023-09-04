@@ -1,69 +1,69 @@
-import { Button } from "react-bootstrap";
-import "../styles/LoginPage.sass";
-import { useState } from "react";
+import TextInput from '../components/TextInput';
+import { Button } from 'react-bootstrap';
+import '../styles/LoginPage.sass';
+import { useState } from 'react';
+//import { UserCredential, signInWithEmailAndPassword } from 'firebase/auth';
+
+/* interface User {
+	email: string;
+	password: string;
+} */
 
 const LoginPage = () => {
-  const [signing, setSigning] = useState(false);
-  const [credentials, setCredentials] = useState({
-    email: "",
-    password: "",
-  });
+	const [signing, setSigning] = useState(false);
+	const [credentials, setCredentials] = useState({
+		email: '',
+		password: '',
+	});
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCredentials((prev) => {
-      return {
-        ...prev,
-        [e.target.name]: e.target.value,
-      };
-    });
-  };
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setCredentials((prev) => {
+			return {
+				...prev,
+				[e.target.name]: e.target.value,
+			};
+		});
+	};
 
-  const handleClick = () => {
-    console.log(credentials);
-    setSigning((prev) => !prev);
-  };
+	const handleClick = () => {
+		console.log(credentials);
+		setSigning((prev) => !prev);
+		/* signIn(credentials); */
+	};
 
-  return (
-    <>
-      <main>
-        <h1>Login</h1>
-        <form>
-          <div className="fromItemWrapper">
-            <label htmlFor="exampleInputEmail1" className="form-label">
-              Email address
-            </label>
-            <input
-              type="email"
-              name="email"
-              className="form-control"
-              id="exampleInputEmail1"
-              onChange={handleChange}
-            />
-          </div>
-          <div className="fromItemWrapper">
-            <label htmlFor="passwordinput" className="form-label">
-              Password
-            </label>
-            <input
-              name="password"
-              type="password"
-              className="form-control"
-              id="passwordinput"
-              onChange={handleChange}
-            />
-          </div>
-          <Button
-            variant="secondary"
-            className={!signing ? "signin--btn" : "signin--btn signining"}
-            disabled={signing}
-            onClick={handleClick}
-          >
-            ลงชื่อเข้าใช้
-          </Button>
-        </form>
-      </main>
-    </>
-  );
+/* 	const signIn = (user: User) => {
+		signInWithEmailAndPassword(auth, user.email, user.password)
+			.then((userCredential: UserCredential) => {
+        console.log(userCredential)
+			})
+			.catch((error) => {
+        console.log(error)
+			});
+	};
+ */
+	return (
+		<>
+			<main>
+				<h1>Login</h1>
+				<form>
+					<TextInput onChange={handleChange} name="email" type="email">
+						Email
+					</TextInput>
+					<TextInput onChange={handleChange} name="password" type="password">
+						Password
+					</TextInput>
+					<Button
+						variant="secondary"
+						className={!signing ? 'signin--btn' : 'signin--btn signining'}
+						disabled={signing}
+						onClick={handleClick}
+					>
+						ลงชื่อเข้าใช้
+					</Button>
+				</form>
+			</main>
+		</>
+	);
 };
 
 export default LoginPage;
