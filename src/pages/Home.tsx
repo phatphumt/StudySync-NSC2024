@@ -1,6 +1,7 @@
 import { Button } from 'react-bootstrap';
 import '../styles/App.sass';
 import '../styles/Home.sass';
+import { Link } from 'react-router-dom';
 
 const App = () => {
 	const aboutContent = [
@@ -45,9 +46,11 @@ const App = () => {
 						);
 					})}
 				</div>
-				<Button variant="secondary" className="start--btn">
-					เริ่มเลย
-				</Button>
+				<Link to='/login'>
+					<Button variant="secondary" className="start--btn">
+						เริ่มเลย
+					</Button>
+				</Link>
 			</main>
 		</>
 	);
