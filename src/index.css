@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai+Looped:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a, a:active, a:visited {
+	text-decoration: none;
+	color: #000;
+}
+
+.material-symbols-outlined {
+	user-select: none;
+}
+
+* {
+	font-family: 'Noto Sans Thai Looped', sans-serif;
+}

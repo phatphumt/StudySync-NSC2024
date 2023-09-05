@@ -10,8 +10,8 @@ interface Props {
 const TextInput = (props: Props) => {
 	const stuffId = Math.random()
   return (
-		<div className="fromItemWrapper">
-			<label htmlFor={`stuff${stuffId}`} className="form-label">
+		<div className="">
+			<label htmlFor={`stuff${stuffId}`} className="">
 				{props.children}
 			</label>
 			<input

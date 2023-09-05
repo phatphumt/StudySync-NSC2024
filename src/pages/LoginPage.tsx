@@ -1,6 +1,4 @@
 import TextInput from '../components/TextInput';
-import { Button } from 'react-bootstrap';
-import '../styles/LoginPage.sass';
 import { useState } from 'react';
 //import { UserCredential, signInWithEmailAndPassword } from 'firebase/auth';
 
@@ -52,14 +50,13 @@ const LoginPage = () => {
 					<TextInput onChange={handleChange} name="password" type="password">
 						Password
 					</TextInput>
-					<Button
-						variant="secondary"
+					<button
 						className={!signing ? 'signin--btn' : 'signin--btn signining'}
 						disabled={signing}
 						onClick={handleClick}
 					>
 						ลงชื่อเข้าใช้
-					</Button>
+					</button>
 				</form>
 			</main>
 		</>

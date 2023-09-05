@@ -1,55 +1,40 @@
-import { Button } from 'react-bootstrap';
-import '../styles/App.sass';
-import '../styles/Home.sass';
 import { Link } from 'react-router-dom';
+import AboutCard from '../components/AboutCard';
 
 const App = () => {
 	const aboutContent = [
 		{
 			title: 'วางแผน',
 			iconName: 'assignment',
-			desc: 'วางแผนการเรียนด้วย',
-			descB: 'To-Do list ของเรา',
+			desc: ['วางแผนการเรียนด้วย', 'To-Do list ของเรา'],
 		},
 		{
 			title: 'เรียน',
 			iconName: 'edit_document',
-			desc: 'เพิ่มโฟกัสด้วย ',
-			descB: 'Pomodoro Technique',
+			desc: ['เพิ่มโฟกัสด้วย ', 'Pomodoro Technique'],
 		},
 		{
 			title: 'ทบทวน',
 			iconName: 'rate_review',
-			desc: 'ทบทวนโดยการใช้ ',
-			descB: 'Flashcard หรือแบบทดสอบ',
+			desc: ['ทบทวนโดยการใช้ ', 'Flashcard หรือแบบทดสอบ'],
 		},
 	];
 
 	return (
 		<>
-			<main>
-				<h1>StudySync คืออะไร</h1>
-				<div className="about">
+			<main className="h-[93.1vh] flex flex-col justify-center items-center sph">
+				<h1 className="text-4xl font-bold text-center">StudySync คืออะไร</h1>
+				<div className="flex w-screen justify-evenly mt-7 p-14 bg-main">
 					{aboutContent.map((stuff) => {
 						return (
-							<div className="about-content">
-								<h2>{stuff.title}</h2>
-								<span className="material-symbols-outlined icons">
-									{stuff.iconName}
-								</span>
-								<p>
-									{stuff.desc}
-									<br />
-									{stuff.descB}
-								</p>
-							</div>
+							<AboutCard iconName={stuff.iconName} desc={stuff.desc}>
+								{stuff.title}
+							</AboutCard>
 						);
 					})}
 				</div>
-				<Link to='/login'>
-					<Button variant="secondary" className="start--btn">
-						เริ่มเลย
-					</Button>
+				<Link to="/login">
+					<button className="px-24 py-4 mt-10 text-2xl font-bold transition-all duration-200 rounded-md bg-main active:scale-95 hover:shadow-lg">เริ่มเลย</button>
 				</Link>
 			</main>
 		</>
