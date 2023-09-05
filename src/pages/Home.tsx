@@ -22,9 +22,9 @@ const App = () => {
 
 	return (
 		<>
-			<main className="h-[93.1vh] flex flex-col justify-center items-center sph">
-				<h1 className="text-4xl font-bold text-center">StudySync คืออะไร</h1>
-				<div className="flex w-screen justify-evenly mt-7 p-14 bg-main">
+			<main className="main--wrapper h--full--nav">
+				<h1 className="studysync--title">StudySync คืออะไร</h1>
+				<div className="about--wrapper">
 					{aboutContent.map((stuff) => {
 						return (
 							<AboutCard iconName={stuff.iconName} desc={stuff.desc}>
@@ -34,7 +34,7 @@ const App = () => {
 					})}
 				</div>
 				<Link to="/login">
-					<button className="px-24 py-4 mt-10 text-2xl font-bold transition-all duration-200 rounded-md bg-main active:scale-95 hover:shadow-lg">เริ่มเลย</button>
+					<button className="start--btn">เริ่มเลย</button>
 				</Link>
 			</main>
 		</>
