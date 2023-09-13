@@ -1,22 +1,21 @@
 import TextInput from '../components/TextInput';
 import { useState } from 'react';
-import { signInForm } from '../configs/stuff';
-/* import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../configs/firebase';
-import { Link, redirect } from 'react-router-dom';
- */
-interface User {
+import { signUpForm } from '../configs/stuff';
+//import { UserCredential, signInWithEmailAndPassword } from 'firebase/auth';
+
+/* interface User {
 	email: string;
 	password: string;
-}
+} */
 
-const LoginPage = () => {
+const SignUpPage = () => {
 	const [signing, setSigning] = useState(false);
 	const [credentials, setCredentials] = useState({
 		email: '',
 		password: '',
+    confirmPassword: ''
 	});
-	
+
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setCredentials((prev) => {
 			return {
@@ -26,26 +25,20 @@ const LoginPage = () => {
 		});
 	};
 
-	const handleClick = async () => {
+	const handleClick = () => {
 		console.log(credentials);
+    if (credentials.password !== credentials.confirmPassword) {
+      return;
+    }
 		setSigning((prev) => !prev);
-/* 		signInWithEmailAndPassword(auth, user.email, user.password)
-			.then((stuff) => {
-				redirect('/dashboard')
-			})
-			.catch((error) => {
-				console.log(error.code)
-				console.log(error.message)
-			}); */
-
 	};
-
+  
 	return (
 		<>
 			<main className="flex flex-col items-center justify-center text-center h--full--nav">
-				<h1 className="mb-8 text-5xl">Login</h1>
+				<h1 className="mb-8 text-5xl">Sign up</h1>
 				<form className="flex flex-col items-center gap-5">
-					{signInForm.map((stuff) => {
+					{signUpForm.map((stuff) => {
 						return (
 							<TextInput
 								onChange={handleChange}
@@ -57,11 +50,10 @@ const LoginPage = () => {
 							</TextInput>
 						);
 					})}
-					{/* <Link to="/signup">Sign up here!</Link> */}
 					<button
 						className={!signing ? 'signin--btn' : 'signin--btn signining'}
 						disabled={signing}
-						onClick={() => handleClick()}
+						onClick={handleClick}
 					>
 						ลงชื่อเข้าใช้
 					</button>
@@ -71,4 +63,4 @@ const LoginPage = () => {
 	);
 };
 
-export default LoginPage;
+export default SignUpPage;

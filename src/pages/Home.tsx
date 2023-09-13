@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import AboutCard from '../components/AboutCard';
-import aboutContent from '../configs/stuff'
+import {aboutContent} from '../configs/stuff'
 
 const App = () => {
 	return (

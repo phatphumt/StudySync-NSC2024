@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage.tsx';
 import NavBar from './components/NavBar.tsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
+import SignUpPage from './pages/SignUpPage.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
@@ -15,6 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 				<Route path="/" element={<App />} />
 				<Route path="/dashboard" element={<Dashboard />} />
 				<Route path="/login" element={<LoginPage />} />
+				<Route path="/signup" element={<SignUpPage />} />
 			</Routes>
 		</Router>
 	</React.StrictMode>

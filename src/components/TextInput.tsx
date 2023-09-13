@@ -17,7 +17,7 @@ const TextInput = ({children, name, type, onChange, className}: Props) => {
 				name={name}
 				id={`stuff${stuffId}`}
 				onChange={onChange}
-				placeholder={children.toString()}
+				placeholder={children?.toString()}
 				className={className}
 			/>
 		</div>
