@@ -35,3 +35,17 @@ a, a:active, a:visited {
 .main--wrapper {
 	@apply flex flex-col items-center justify-center
 }
+
+.input--style {
+	background-color: #d9d9d9;
+	text-indent: 1.5rem;
+	width: 30vw;
+}
+
+.signin--btn {
+	@apply bg-main px-24 py-4 rounded-md font-bold text-xl active:scale-95 transition-all duration-100
+}
+
+.signining {
+	@apply opacity-50 cursor-wait
+}

@@ -4,22 +4,21 @@ interface Props {
   children: React.ReactNode,
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
   name: string,
-  type: string
+  type: string,
+  className: string
 }
 
-const TextInput = (props: Props) => {
+const TextInput = ({children, name, type, onChange, className}: Props) => {
 	const stuffId = Math.random()
   return (
-		<div className="">
-			<label htmlFor={`stuff${stuffId}`} className="">
-				{props.children}
-			</label>
+		<div>
 			<input
-				type={props.type}
-				name={props.name}
-				className="form-control"
+				type={type}
+				name={name}
 				id={`stuff${stuffId}`}
-				onChange={props.onChange}
+				onChange={onChange}
+				placeholder={children.toString()}
+				className={className}
 			/>
 		</div>
 	);

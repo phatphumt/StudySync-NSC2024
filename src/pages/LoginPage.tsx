@@ -26,28 +26,17 @@ const LoginPage = () => {
 	const handleClick = () => {
 		console.log(credentials);
 		setSigning((prev) => !prev);
-		/* signIn(credentials); */
 	};
 
-/* 	const signIn = (user: User) => {
-		signInWithEmailAndPassword(auth, user.email, user.password)
-			.then((userCredential: UserCredential) => {
-        console.log(userCredential)
-			})
-			.catch((error) => {
-        console.log(error)
-			});
-	};
- */
 	return (
 		<>
-			<main>
-				<h1>Login</h1>
-				<form>
-					<TextInput onChange={handleChange} name="email" type="email">
+			<main className="h--full--nav text-center flex justify-center items-center flex-col">
+				<h1 className="text-5xl mb-8">Login</h1>
+				<form className="flex flex-col items-center gap-5">
+					<TextInput onChange={handleChange} name="email" type="email" className="text-2xl rounded-lg input--style py-4 px-1">
 						Email
 					</TextInput>
-					<TextInput onChange={handleChange} name="password" type="password">
+					<TextInput onChange={handleChange} name="password" type="password" className='text-2xl rounded-lg input--style py-4 px-1'>
 						Password
 					</TextInput>
 					<button
