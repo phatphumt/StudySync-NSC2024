@@ -5,10 +5,6 @@ import { signInForm } from '../configs/stuff';
 import { auth } from '../configs/firebase';
 import { Link, redirect } from 'react-router-dom';
  */
-interface User {
-	email: string;
-	password: string;
-}
 
 const LoginPage = () => {
 	const [signing, setSigning] = useState(false);
