@@ -11,17 +11,17 @@ const AboutCard = (props: Props) => {
 	return (
 		<>
 			<article className="flex flex-col items-center text-center">
-				<h2 className="text-3xl mb-5 font-medium">{props.children}</h2>
-				<span className="material-symbols-outlined icons text-9xl mb-4">
+				<h2 className="mb-5 text-3xl font-medium">{props.children}</h2>
+				<span className="mb-4 material-symbols-outlined icons text-9xl">
 					{props.iconName}
 				</span>
 				<div className=''>
 					{props.desc.map((stuff, index) => {
 						return (
-							<>
+							<aside>
 								{stuff}
 								{props.desc.length - 1 !== index && <br />}
-							</>
+							</aside>
 						);
 					})}
 				</div>

@@ -1,10 +1,18 @@
 import TextInput from '../components/TextInput';
 import { useState } from 'react';
 import { signInForm } from '../configs/stuff';
+import 'dotenv';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../configs/firebase';
 /* import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../configs/firebase';
 import { Link, redirect } from 'react-router-dom';
  */
+
+interface User {
+	email: string;
+	password: string;
+}
 
 const LoginPage = () => {
 	const [signing, setSigning] = useState(false);
@@ -12,7 +20,7 @@ const LoginPage = () => {
 		email: '',
 		password: '',
 	});
-	
+
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setCredentials((prev) => {
 			return {
@@ -22,18 +30,15 @@ const LoginPage = () => {
 		});
 	};
 
-	const handleClick = async () => {
+	const handleClick = async (user: User) => {
 		console.log(credentials);
 		setSigning((prev) => !prev);
-/* 		signInWithEmailAndPassword(auth, user.email, user.password)
-			.then((stuff) => {
-				redirect('/dashboard')
-			})
+		signInWithEmailAndPassword(auth, user.email, user.password)
+			.then(() => console.log('logged in'))
 			.catch((error) => {
-				console.log(error.code)
-				console.log(error.message)
-			}); */
-
+				console.log(error.code);
+				console.log(error.message);
+			});
 	};
 
 	return (
@@ -57,7 +62,7 @@ const LoginPage = () => {
 					<button
 						className={!signing ? 'signin--btn' : 'signin--btn signining'}
 						disabled={signing}
-						onClick={() => handleClick()}
+						onClick={() => handleClick(credentials)}
 					>
 						ลงชื่อเข้าใช้
 					</button>
