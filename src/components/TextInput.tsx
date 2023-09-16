@@ -6,9 +6,10 @@ interface Props {
   name: string,
   type: string,
   className: string
+	required: boolean
 }
 
-const TextInput = ({children, name, type, onChange, className}: Props) => {
+const TextInput = ({children, name, type, onChange, className, required}: Props) => {
 	const stuffId = Math.random()
   return (
 		<div>
@@ -19,6 +20,7 @@ const TextInput = ({children, name, type, onChange, className}: Props) => {
 				onChange={onChange}
 				placeholder={children?.toString()}
 				className={className}
+				required={required}
 			/>
 		</div>
 	);

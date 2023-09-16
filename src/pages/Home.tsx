@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import AboutCard from '../components/AboutCard';
 import {aboutContent} from '../configs/stuff'
 
-const App = () => {
+const Home = () => {
 	return (
 		<>
 			<main className="main--wrapper h--full--nav">
@@ -24,4 +24,4 @@ const App = () => {
 	);
 };
 
-export default App;
+export default Home;

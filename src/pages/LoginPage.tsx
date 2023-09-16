@@ -1,75 +1,66 @@
-import TextInput from '../components/TextInput';
-import { useState } from 'react';
-import { signInForm } from '../configs/stuff';
-import 'dotenv';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../configs/firebase';
-/* import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../configs/firebase';
-import { Link, redirect } from 'react-router-dom';
- */
-
-interface User {
-	email: string;
-	password: string;
-}
+import TextInput from "../components/TextInput";
+import { useState } from "react";
+import { signInForm } from "../configs/stuff";
+import "dotenv";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const LoginPage = () => {
-	const [signing, setSigning] = useState(false);
-	const [credentials, setCredentials] = useState({
-		email: '',
-		password: '',
-	});
+  const [credentials, setCredentials] = useState({
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState("");
 
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setCredentials((prev) => {
-			return {
-				...prev,
-				[e.target.name]: e.target.value,
-			};
-		});
-	};
+  const authstuff = useAuth();
+  const navigate = useNavigate();
 
-	const handleClick = async (user: User) => {
-		console.log(credentials);
-		setSigning((prev) => !prev);
-		signInWithEmailAndPassword(auth, user.email, user.password)
-			.then(() => console.log('logged in'))
-			.catch((error) => {
-				console.log(error.code);
-				console.log(error.message);
-			});
-	};
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCredentials((prev) => {
+      return {
+        ...prev,
+        [e.target.name]: e.target.value,
+      };
+    });
+  };
 
-	return (
-		<>
-			<main className="flex flex-col items-center justify-center text-center h--full--nav">
-				<h1 className="mb-8 text-5xl">Login</h1>
-				<form className="flex flex-col items-center gap-5">
-					{signInForm.map((stuff) => {
-						return (
-							<TextInput
-								onChange={handleChange}
-								name={stuff.name}
-								type={stuff.type}
-								className="px-1 py-3 text-xl rounded-lg input--style"
-							>
-								{stuff.text}
-							</TextInput>
-						);
-					})}
-					{/* <Link to="/signup">Sign up here!</Link> */}
-					<button
-						className={!signing ? 'signin--btn' : 'signin--btn signining'}
-						disabled={signing}
-						onClick={() => handleClick(credentials)}
-					>
-						ลงชื่อเข้าใช้
-					</button>
-				</form>
-			</main>
-		</>
-	);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError("");
+    authstuff
+      ?.login(credentials.email, credentials.password)
+      .then(() => navigate("/dashboard"))
+      .catch((err) => setError(`${err}`));
+  };
+
+  return (
+    <>
+      <main className="flex flex-col items-center justify-center text-center h--full--nav">
+        <h1 className="mb-8 text-5xl">Login</h1>
+        <form
+          className="flex flex-col items-center gap-5"
+          onSubmit={handleSubmit}
+        >
+          {signInForm.map((stuff) => {
+            return (
+              <TextInput
+                onChange={handleChange}
+                name={stuff.name}
+                type={stuff.type}
+                className="px-1 py-2 text-base rounded-lg input--style"
+                required={true}
+              >
+                {stuff.text}
+              </TextInput>
+            );
+          })}
+          <Link to="/signup">Sign up here!</Link>
+          {error && <p className="text-red-600 font-medium">{error}</p>}
+          <button className="signin--btn">ลงชื่อเข้าใช้</button>
+        </form>
+      </main>
+    </>
+  );
 };
 
 export default LoginPage;
