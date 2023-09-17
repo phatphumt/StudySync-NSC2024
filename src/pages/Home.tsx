@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import AboutCard from '../components/AboutCard';
-import {aboutContent} from '../configs/stuff'
+import { aboutContent } from '../configs/stuff';
+import { useAuth } from '../context/AuthContext';
 
 const Home = () => {
+	const authstuff = useAuth();
 	return (
 		<>
 			<main className="main--wrapper h--full--nav">
@@ -16,7 +18,7 @@ const Home = () => {
 						);
 					})}
 				</div>
-				<Link to="/login">
+				<Link to={!authstuff?.user ? '/login' : '/dashboard'}>
 					<button className="start--btn">เริ่มเลย</button>
 				</Link>
 			</main>
