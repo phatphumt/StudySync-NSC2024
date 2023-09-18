@@ -1,3 +1,9 @@
+interface Data {
+	accuracy: number;
+	correct: number;
+	wrong: number;
+}
+
 const aboutContent = [
 	{
 		title: 'วางแผน',
@@ -20,12 +26,12 @@ const signInForm = [
 	{
 		name: 'email',
 		text: 'Email',
-        type: 'email'
+		type: 'email',
 	},
 	{
 		name: 'password',
 		text: 'Password',
-        type: 'password'
+		type: 'password',
 	},
 ];
 
@@ -48,3 +54,4 @@ const signUpForm = [
 ];
 
 export { aboutContent, signInForm, signUpForm };
+export type { Data };

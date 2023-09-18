@@ -84,3 +84,14 @@ a:visited {
 		transform: rotate(360deg);
 	}
 }
+
+.dashb-ico {
+	font-size: 1.2rem;
+	line-height: normal;
+	transition: all 100ms;
+	cursor: pointer;
+}
+
+.dashb-ico:hover {
+	scale: 1.1;
+}
