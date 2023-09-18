@@ -16,8 +16,8 @@ const DashboardCard = ({ children, stats }: Props) => {
 				if (confirm('log out?')) authstuff?.logout();
 			}}
 		>
-			<div className="w-[60%] bg-gray-600 rounded-lg h-[70%]">
-				<div className="flex items-center justify-between py-3 mx-10 mt-4 bg-white rounded-lg">
+			<div className="w-[60%] bg-gray-600 rounded-lg h-[70%] flex justify-evenly flex-col">
+				<div className="flex items-center justify-between py-3 bg-white rounded-lg mx-7">
 					<span className="ml-4 font-bold">{children}</span>
 					<span className="flex gap-2 mr-4">
 						<span className="material-symbols-outlined dashb-ico">edit</span>
@@ -26,7 +26,7 @@ const DashboardCard = ({ children, stats }: Props) => {
 						</span>
 					</span>
 				</div>
-				<div className="flex items-center justify-center h-2/3">
+				<div className="flex items-center justify-center">
 					<div className="text-center text-white">
 						<span>
 							<span className="font-semibold">Accuracy:</span> {stats.accuracy}

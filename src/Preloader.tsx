@@ -1,12 +1,13 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import ProtectedRoute from './ProtectedRoute';
-import Dashboard from '../pages/Dashboard';
-import LoginPage from '../pages/LoginPage';
-import SignUpPage from '../pages/SignUpPage';
-import Home from '../pages/Home';
-import { useAuth } from '../context/AuthContext';
-import NavBar from './NavBar';
+import ProtectedRoute from './components/ProtectedRoute';
+import Dashboard from './pages/Dashboard';
+import LoginPage from './pages/LoginPage';
+import SignUpPage from './pages/SignUpPage';
+import Home from './pages/Home';
+import { useAuth } from './context/AuthContext';
+import NavBar from './components/NavBar';
+import Timer from './pages/Timer';
 
 const Preloader = () => {
 	const authstuff = useAuth();
@@ -28,6 +29,7 @@ const Preloader = () => {
 						/>
 						<Route path="/login" element={<LoginPage />} />
 						<Route path="/signup" element={<SignUpPage />} />
+						<Route path="/timer" element={<Timer />} />
 					</Routes>
 				</div>
 			) : (

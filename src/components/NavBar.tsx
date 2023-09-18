@@ -23,7 +23,9 @@ const NavBar = () => {
 							</button>
 						</Link>
 					) : (
-						<p className="font-bold">{authstuff.user.email}</p>
+						<>
+							<p className="font-bold">{authstuff.user.email}</p>
+						</>
 					)}
 				</div>
 			</section>
