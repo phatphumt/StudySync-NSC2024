@@ -17,6 +17,7 @@ const AuthProvider = createContext<
 			user: User | null | undefined;
 			logout: () => Promise<void>;
 			login: (email: string, password: string) => Promise<UserCredential>;
+			isLoading: boolean;
 	  }
 	| undefined
 >(undefined);
@@ -27,6 +28,7 @@ interface Props {
 
 const AuthContextProvider = ({ children }: Props) => {
 	const [user, setUser] = useState<User | null>();
+	const [isLoading, setIsLoading] = useState<boolean>(true);
 
 	const createUser = (email: string, password: string) => {
 		return createUserWithEmailAndPassword(auth, email, password);
@@ -43,6 +45,7 @@ const AuthContextProvider = ({ children }: Props) => {
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
 			console.log(currentUser);
+			setIsLoading(false);
 			setUser(currentUser);
 		});
 		return () => {
@@ -51,7 +54,9 @@ const AuthContextProvider = ({ children }: Props) => {
 	}, []);
 
 	return (
-		<AuthProvider.Provider value={{ createUser, user, logout, login }}>
+		<AuthProvider.Provider
+			value={{ createUser, user, logout, login, isLoading }}
+		>
 			{children}
 		</AuthProvider.Provider>
 	);

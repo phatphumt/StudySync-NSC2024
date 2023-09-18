@@ -3,7 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
-a, a:active, a:visited {
+a,
+a:active,
+a:visited {
 	text-decoration: none;
 	color: #000;
 }
@@ -17,23 +19,23 @@ a, a:active, a:visited {
 }
 
 .start--btn {
-	@apply px-24 py-4 mt-10 text-2xl font-bold transition-all duration-200 rounded-md bg-main active:scale-95 hover:shadow-lg
+	@apply px-24 py-4 mt-10 text-2xl font-bold transition-all duration-200 rounded-md bg-main active:scale-95 hover:shadow-lg;
 }
 
 .about--wrapper {
-	@apply flex w-screen justify-evenly mt-7 p-14 bg-main
+	@apply flex w-screen justify-evenly mt-7 p-14 bg-main;
 }
 
 .h--full--nav {
-	height: calc(100vh - 4rem);
+	height: calc(100vh - 3.5rem);
 }
 
 .studysync--title {
-	@apply text-4xl font-bold text-center
+	@apply text-4xl font-bold text-center;
 }
 
 .main--wrapper {
-	@apply flex flex-col items-center justify-center
+	@apply flex flex-col items-center justify-center;
 }
 
 .input--style {
@@ -43,9 +45,42 @@ a, a:active, a:visited {
 }
 
 .signin--btn {
-	@apply bg-main px-24 py-4 rounded-md font-bold text-xl hover:shadow-md transition-all duration-100
+	@apply px-24 py-4 text-xl font-bold transition-all duration-100 rounded-md bg-main hover:shadow-md;
 }
 
 .signining {
-	@apply opacity-50 cursor-wait
+	@apply opacity-50 cursor-wait;
+}
+
+.grid-rows-12 {
+	grid-template-rows: repeat(12, minmax(0, 1fr));
+}
+
+.row-end-10 {
+	grid-row-end: 12;
+}
+
+.loader {
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+}
+.loader:after {
+	content: ' ';
+	display: block;
+	width: 64px;
+	height: 64px;
+	margin: 8px;
+	border-radius: 50%;
+	border: 6px solid #000;
+	border-color: #000 transparent #000 transparent;
+	animation: loader-anim 1.2s linear infinite;
+}
+@keyframes loader-anim {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
