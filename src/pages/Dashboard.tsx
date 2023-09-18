@@ -1,8 +1,6 @@
 import DashboardCard from '../components/DashboardCard';
-import { useAuth } from '../context/AuthContext';
 
 const Dashboard = () => {
-	const authstuff = useAuth();
 	return (
 		<>
 			<div className="grid grid-cols-12 grid-rows-12 h--full--nav place-items-">
