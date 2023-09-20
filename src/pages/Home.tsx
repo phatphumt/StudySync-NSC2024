@@ -7,9 +7,9 @@ const Home = () => {
 	const authstuff = useAuth();
 	return (
 		<>
-			<main className="main--wrapper h--full--nav">
-				<h1 className="studysync--title">StudySync คืออะไร</h1>
-				<div className="about--wrapper">
+			<main className="pt-[5vh] main--wrapper xs:h-[93vh] xs:pt-0">
+				<h1 className="pb-0 studysync--title xs:pb-7">StudySync คืออะไร</h1>
+				<div className="py-0 about--wrapper xs:py-10">
 					{aboutContent.map((stuff) => {
 						return (
 							<AboutCard iconName={stuff.iconName} desc={stuff.desc}>

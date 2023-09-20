@@ -1,10 +1,10 @@
-/* import React, { useState } from 'react';
+import React, { useState } from 'react';
 import useCountdown from '../hooks/useCountdown';
 import TimerText from '../components/TimerText';
 
 function CountdownComponent() {
 	const { secondsLeft, start, stop, resume } = useCountdown(async () =>
-		alert("time's up")
+		alert("time's up baby")
 	);
 	const [minutes, setMinutes] = useState(0);
 	const [inputSeconds, setInputSeconds] = useState(0);
@@ -24,7 +24,7 @@ function CountdownComponent() {
 	return (
 		<div className="container p-4 mx-auto">
 			<h2 className="mb-4 text-2xl font-semibold">Countdown Timer</h2>
-			<TimerText>Time: </TimerText>
+			<TimerText secondsLeft={secondsLeft}>Time: </TimerText>
 			<div className="flex mb-4 space-x-2">
 				<input
 					className="w-16 px-2 py-1 border rounded"
@@ -66,4 +66,3 @@ function CountdownComponent() {
 }
 
 export default CountdownComponent;
- */

@@ -19,11 +19,11 @@ a:visited {
 }
 
 .start--btn {
-	@apply px-24 py-4 mt-10 text-2xl font-bold transition-all duration-200 rounded-md bg-main active:scale-95 hover:shadow-lg;
+	@apply px-24 py-4 m-10 text-2xl font-bold transition-all duration-200 rounded-md bg-main active:scale-95 hover:shadow-lg xs:m-0 xs:mt-10;
 }
 
 .about--wrapper {
-	@apply flex w-screen justify-evenly mt-7 p-14 bg-main;
+	@apply flex flex-col w-screen gap-4 py-5 mt-3 justify-evenly bg-main xs:flex-row;
 }
 
 .h--full--nav {
@@ -31,7 +31,7 @@ a:visited {
 }
 
 .studysync--title {
-	@apply text-4xl font-bold text-center;
+	@apply text-2xl font-bold text-center xs:text-4xl;
 }
 
 .main--wrapper {
@@ -41,7 +41,7 @@ a:visited {
 .input--style {
 	background-color: #d9d9d9;
 	text-indent: 1.5rem;
-	width: 30vw;
+	@apply w-[80vw] xs:w-[50vw];
 }
 
 .signin--btn {

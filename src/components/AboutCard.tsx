@@ -6,15 +6,15 @@ interface Props {
 	desc: string[];
 }
 
-const AboutCard = ({children, iconName, desc}: Props) => {
+const AboutCard = ({ children, iconName, desc }: Props) => {
 	return (
 		<>
 			<article className="flex flex-col items-center text-center">
 				<h2 className="mb-5 text-3xl font-medium">{children}</h2>
-				<span className="mb-4 material-symbols-outlined icons text-9xl">
+				<span className="mb-4 text-8xl material-symbols-outlined icons">
 					{iconName}
 				</span>
-				<div className=''>
+				<div className="">
 					{desc.map((stuff, index) => {
 						return (
 							<aside>
