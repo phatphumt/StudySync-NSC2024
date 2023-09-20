@@ -16,7 +16,7 @@ const Dashboard = () => {
 				</div>
 				<div className="col-start-10 col-end-12 row-start-2 row-end-10 rounded-2xl place-items-center w-[120%] grid grid-rows-3">
 					<div className="flex w-[80%] row-span-2 h-[80%] rounded-xl bg-slate-800 justify-center flex-col items-center">
-						<Link to="timer/start">
+						<Link to="../timer">
 							<button className="flex items-center justify-center mb-6 transition-all ease-linear bg-white rounded-full w-36 h-36 active:scale-95">
 								<div className="translate-x-[0.5rem] arrow-right"></div>
 							</button>

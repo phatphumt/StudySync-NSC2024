@@ -7,7 +7,7 @@ import SignUpPage from './pages/SignUpPage';
 import Home from './pages/Home';
 import { useAuth } from './context/AuthContext';
 import NavBar from './components/NavBar';
-import Timer from './pages/Timer';
+import Timer from './pages/TimerPage';
 
 const Preloader = () => {
 	const authstuff = useAuth();
