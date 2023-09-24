@@ -3,14 +3,23 @@ import React from 'react';
 interface Props {
 	children: React.ReactNode;
 	iconName: string;
+	className?: string;
 }
 
-const DashboardButton = ({ children, iconName }: Props) => {
+const DashboardButton = ({ children, iconName, className }: Props) => {
 	return (
-		<button className="flex justify-center items-center gap-2 w-9/12 rounded-full bg-main h-[75%]">
-			<span className="text-3xl material-symbols-outlined">{iconName}</span>
-			<span className="text-lg font-bold">{children}</span>
-		</button>
+		<div>
+			<button
+				className={
+					'flex items-center justify-center w-full h-full gap-2 rounded-full bg-main py-3 px-10' +
+					' ' +
+					className
+				}
+			>
+				<span className="text-xl material-symbols-outlined">{iconName}</span>
+				<span className="text-lg font-semibold">{children}</span>
+			</button>
+		</div>
 	);
 };
 

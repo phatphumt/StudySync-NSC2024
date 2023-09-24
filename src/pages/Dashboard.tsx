@@ -5,7 +5,7 @@ import DashboardCard from '../components/DashboardCard';
 const Dashboard = () => {
 	return (
 		<>
-			<div className="grid h-screen grid-cols-12 grid-rows-12">
+			<div className="grid grid-cols-12 grid-rows-21 h-[193vh] xs:h-screen xs:grid-cols-12 xs:grid-rows-12">
 				<div className="grid grid-cols-2 col-start-2 col-end-12 grid-rows-2 row-start-2 bg-black row-end-10 rounded-2xl">
 					<DashboardCard stats={{ accuracy: 10, wrong: 10, correct: 10 }}>
 						Flashcard
@@ -14,29 +14,33 @@ const Dashboard = () => {
 						Quiz
 					</DashboardCard>
 				</div>
-				<div className="col-start-10 col-end-12 row-start-2 row-end-10 rounded-2xl place-items-center w-[120%] grid grid-rows-3">
-					<div className="flex w-[80%] row-span-2 h-[80%] rounded-xl bg-slate-800 justify-center flex-col items-center">
-						<Link to="../timer">
-							<button className="flex items-center justify-center mb-6 transition-all ease-linear bg-white rounded-full w-36 h-36 active:scale-95">
-								<div className="translate-x-[0.5rem] arrow-right"></div>
-							</button>
-						</Link>
-						<div className="items-center justify-center w-full text-center">
-							<h1 className="mb-[1rem] text-3xl font-extrabold text-white">
-								Start
-							</h1>
+				<div className="grid col-span-8 col-start-3 grid-rows-6 rounded-full row-start-13 row-end-23">
+					<div className="grid grid-rows-6 row-span-4 place-items-center">
+						<div className="flex items-center justify-center w-3/4 row-span-4 bg-black rounded-lg h-3/4">
+							<div className="flex items-center justify-center w-24 h-24 bg-white rounded-full">
+								<Link to="../index"></Link>
+								<div className="translate-x-1 arrow-right"></div>
+							</div>
+						</div>
+						<div className="text-2xl font-bold">เริ่มเลย</div>
+						<div className="grid w-full h-full place-items-center">
 							<input
 								type="text"
-								className="rounded-full w-[80%] text-indent py-[0.3rem]"
-								placeholder="What should you do??"
+								name=""
+								id=""
+								className="w-3/4 border-2 h-2/4 rounded-3xl text-indent"
 							/>
 						</div>
 					</div>
-					<div className="grid w-full h-full place-items-center">
-						<DashboardButton iconName="sticky_note_2">
-							Flashcard
+					<div className="flex items-center justify-center">
+						<DashboardButton iconName="edit" className="bg-main">
+							akljdl
 						</DashboardButton>
-						<DashboardButton iconName="quiz">Quiz</DashboardButton>
+					</div>
+					<div className="grid place-items-center">
+						<DashboardButton iconName="edit" className="bg-main">
+							akljdl
+						</DashboardButton>
 					</div>
 				</div>
 			</div>

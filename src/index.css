@@ -99,12 +99,28 @@ a:visited {
 .arrow-right {
 	width: 0;
 	height: 0;
-	border-top: 30px solid transparent;
-	border-bottom: 30px solid transparent;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
 
-	border-left: 60px solid black;
+	border-left: 40px solid black;
 }
 
 .text-indent {
 	text-indent: 1rem;
+}
+
+.grid-rows-21 {
+	grid-template-rows: repeat(21, minmax(0, 1fr));
+}
+
+.row-start-13 {
+	grid-row-start: 13;
+}
+
+.row-end-24 {
+	grid-row-end: 24;
+}
+
+.row-end-23 {
+	grid-row-end: 20;
 }
